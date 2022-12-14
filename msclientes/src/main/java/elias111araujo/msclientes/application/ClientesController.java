@@ -4,6 +4,7 @@ package elias111araujo.msclientes.application;
 import elias111araujo.msclientes.application.representation.ClienteSaveRequest;
 import elias111araujo.msclientes.domain.Cliente;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,12 +14,14 @@ import java.net.URI;
 @RestController
 @RequestMapping("clientes")
 @RequiredArgsConstructor
+@Slf4j
 public class ClientesController {
     private final ClienteService service;
 
     @GetMapping
     public String status(){
-        return "Microsserviço de pé!";
+        log.info("Obtendo status microservice de Clientes");
+        return "Clientes está de pé!";
     }
 
     @PostMapping
